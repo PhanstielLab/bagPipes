@@ -42,7 +42,7 @@ rule trim:
 		"""
 		module load trim_galore/{params.version};
 		trim_galore -o {params.dir} --retain_unpaired {input.R1} 1> {log.out} 2> {log.err};
-		mv {params.dir}/$(basename {input.R1} .fastq.gz).fq.gz  {output.trim1};
+		mv {params.dir}/$(basename {input.R1} .fastq.gz)_trimmed.fq.gz  {output.trim1};
 		mv {params.dir}/$(basename {input.R1})_trimming_report.txt  {output.report1};
 		"""
 
@@ -64,16 +64,19 @@ rule align:
 		index = config['bwamem'],
 		bwaVersion = config['bwaVers'],
 		samtoolsVersion = config['samtoolsVers'],
-		javaVersion = config['javaVers']
-	threads: 8
+		javaVersion = config['javaVers'],
+		rg = lambda wildcards: f"@RG\\tID:{wildcards.sampleName}\\tSM:{wildcards.sampleName}\\tPL:ILLUMINA\\tLB:{wildcards.sampleName}_lib\\tPU:{wildcards.sampleName}_unit"
+	resources: 
+		cpus_per_task = 8,
+		mem_mb_per_cpu = "10G"
 	shell:
 		"""
 		module load bwa/{params.bwaVersion};
 		module load samtools/{params.samtoolsVersion};
 		module load java/{params.javaVersion};
-		bwa mem -t 8 {params.index} {input.trim1} | samtools view -u | samtools sort -o {output.bam} 1> {log.out} 2> {log.err};
+		bwa mem -t 8 -R '{params.rg}' {params.index} {input.trim1} | samtools view -u | samtools sort -o {output.bam} 1> {log.out} 2> {log.err};
 		samtools flagstat {output.bam} > {output.stats} 2>> {log.err};
-		java -Xmx16g -jar /nas/longleaf/apps/picard/2.10.3/picard-2.10.3/picard.jar MarkDuplicates I={output.bam} O={output.filteredBam} M={output.dupStats} REMOVE_SEQUENCING_DUPLICATES=true;
+		java -Xmx16g -jar /nas/longleaf/apps/picard/3.4.0/picard-3.4.0/picard.jar MarkDuplicates I={output.bam} O={output.filteredBam} M={output.dupStats} REMOVE_DUPLICATES=true;
 		samtools index {output.filteredBam} 1>> {log.out} 2>> {log.err}
 		"""
 

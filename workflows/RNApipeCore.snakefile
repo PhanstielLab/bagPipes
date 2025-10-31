@@ -121,7 +121,9 @@ rule quant:
 	params:
 		dir = "output/quant",
 		index = config['salmon'],
-		version = config['salmonVers']		
+		version = config['salmonVers']
+	resources:
+		mem_mb_per_cpu = "20G"
 	shell:
 		"""
 		module load salmon/{params.version};
@@ -145,9 +147,11 @@ rule align:
 		index = config['hisat2'],
 		hisatVersion = config['hisatVers'],
 		samtoolsVersion = config['samtoolsVers']
+	resources:
+		mem_mb_per_cpu = "10G"
 	shell:
 		"""
-		module load hisat2/{params.hisatVersion};
+		module load hisat-3n/{params.hisatVersion};
 		module load samtools/{params.samtoolsVersion};
 		hisat2 -q -x {params.index} -1 {input.trim1} -2 {input.trim2} | samtools view -u | samtools sort -o {output.bam} 1> {log.out} 2> {log.err};
 		samtools flagstat {output.bam} > {output.stats} 2>> {log.err};

@@ -33,7 +33,7 @@ The individual pipelines of `bagPipes` are run in very similar ways, with differ
 1. Clone workflow into working direcotry:
 
 	```bash
-	git clone https://github.com/ksmetz/bagPipes.git .
+	git clone https://github.com/toobarashid96/bagPipes.git .
 	```
 
 2. Edit the tab-separated `XXXXsamplesheet.txt` file with the names of `Read1` and `Read2` gzipped fastq files (or just `Read1` for single-end data), and the paths to these files under the `Sequencing_Directory` column. No naming convention is needed. Any number of optional columns can be included for metadata, output file naming, and sample merging. An example is shown below:

@@ -6,11 +6,11 @@ paired: True
 
 ## List columns to concatenate for file names 
 ## (or indicate a single Name column, i.e. fileNamesFrom: ['Name'])
-fileNamesFrom: ['Project', 'Cell_Type', 'Target', 'Time', 'Bio_Rep', 'Tech_Rep']
+fileNamesFrom: ['Project', 'Cell_Type', 'Genotype', 'Target', 'Bio_Rep', 'Tech_Rep']
 
 ## List columns to group (i.e. any columns left out will become part of the same group)
 ## set mergeBy: '' for no merging
-mergeBy: ['Project', 'Cell_Type', 'Target', 'Time']
+mergeBy: ['Project', 'Cell_Type', 'Genotype', 'Target']
 
 ## Indicate whether to create stranded signal tracks
 stranded: False
@@ -20,12 +20,12 @@ stranded: False
 bwamem: '/proj/seq/data/hg38_UCSC/Sequence/BWAIndex/genome.fa'
 
 ## Software versions
-fastqcVers: "0.11.9"
-trimVers: "0.6.7"
+fastqcVers: "0.12.1"
+trimVers: "0.6.10"
 bwaVers: "0.7.17"
-samtoolsVers: "1.17"
-javaVers: "10.0.2"
-deeptoolsVers: "3.5.1"
-multiqcVers: "1.11" 
-bedtoolsVers: "2.30"
-macsVers: "2016-02-15"
+samtoolsVers: "1.22"
+javaVers: "17.0.2"
+deeptoolsVers: "3.5.4"
+multiqcVers: "1.28" 
+bedtoolsVers: "2.31.1"
+macsVers: "2.2.9.1"

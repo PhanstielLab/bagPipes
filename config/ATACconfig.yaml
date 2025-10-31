@@ -18,12 +18,12 @@ bwamem: '/proj/seq/data/hg38_UCSC/Sequence/BWAIndex/genome.fa'
 
 
 ## Software versions
-fastqcVers: "0.11.9"
-trimVers: "0.6.7"
+fastqcVers: "0.12.1"
+trimVers: "0.6.10"
 bwaVers: "0.7.17"
-samtoolsVers: "1.17"
+samtoolsVers: "1.22"
 javaVers: "17.0.2"
-deeptoolsVers: "3.5.1"
-multiqcVers: "1.11" 
-bedtoolsVers: "2.30"
-macsVers: "2016-02-15"
+deeptoolsVers: "3.5.4"
+multiqcVers: "1.28" 
+bedtoolsVers: "2.31.1"
+macsVers: "2.2.9.1"
