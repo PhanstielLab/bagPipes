@@ -13,13 +13,18 @@ mergeBy: ['Project', 'Cell_Type', 'Genotype', 'Treatment', 'Time']
 stranded: True # False
 
 ## Genome-specific reference parameters (choose correct genome build!)
-salmon: '/proj/seq/data/salmon_RNAseq_genomes/hg38_cdna/salmon_index/default'
-hisat2: '/proj/seq/data/hg38_UCSC/Sequence/HISAT2Index/genome'
-gtf: '/proj/seq/data/GRCh38_GENCODE/gencode.v32.primary_assembly.annotation.gtf'
+## salmon: '/proj/seq/data/salmon_RNAseq_genomes/hg38_cdna/salmon_index/default'
+## hisat2: '/proj/seq/data/hg38_UCSC/Sequence/HISAT2Index/genome'
+## gtf: '/proj/seq/data/GRCh38_GENCODE/gencode.v32.primary_assembly.annotation.gtf'
 
 ## salmon: '/proj/seq/data/HG19_UCSC/Sequence/SalmonIndex/'
 ## hisat2: '/proj/seq/data/HG19_UCSC/Sequence/HISAT2Index/'
 ## gtf: '/proj/seq/data/HG19_UCSC/Annotation/Genes/genes.gtf'
+
+## salmon: '/proj/phanstiel_lab/Reference/human/hg38/indices/salmon/'
+## hisat2: '/proj/phanstiel_lab/Reference/human/hg38/indices/hisat2/hg38_gencode'
+## gtf: '/proj/phanstiel_lab/Reference/human/hg38/annotations/gencode.v49.primary_assembly.annotation.gtf'
+
 
 ## Software versions
 fastqcVers: "0.12.1"

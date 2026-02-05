@@ -17,7 +17,10 @@ stranded: False
 
 ## Genome-specific reference parameters (choose correct genome build!)
 ## bwamem: '/proj/seq/data/HG19_UCSC/Sequence/BWAIndex/genome.fa'
-bwamem: '/proj/seq/data/hg38_UCSC/Sequence/BWAIndex/genome.fa'
+## bwamem: '/proj/seq/data/hg38_UCSC/Sequence/BWAIndex/genome.fa'
+
+## bwamem: '/proj/phanstiel_lab/Reference/human/hg38/indices/bwa/hg38_gencode'
+## bwamem: '/proj/phanstiel_lab/Reference/human/hg19/indices/bwa/hg19_gencode'
 
 ## Software versions
 fastqcVers: "0.12.1"
