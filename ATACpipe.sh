@@ -7,7 +7,6 @@
 #SBATCH -p general
 #SBATCH --mem=2gb
 #SBATCH --mail-type=END,FAIL,TIME_LIMIT_80
-#SBATCH --mail-user=tooba@email.unc.edu
 #SBATCH -o "%x-%j.out"
 
 ## Exit if any command fails
